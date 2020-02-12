@@ -6,7 +6,7 @@ from player import Player
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     """North of you, the cave mount beckons"""),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -35,12 +35,29 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+
+# items
+
+item = {
+    "torch": Item("torch", "The light will help you see the way"),
+    "sword": Item("sword", "Hattori Hanzo to defeat your enemies"),
+    "shield": Item("shield", "Block your enemies blows"),
+    "crown": Item("crown", "Claim your rightful place on the throne"),
+    "ring": Item("ring", "family heirloom, reminder of your greatness")
+}
+
+# Add to rooms
+room['outside'].add_item(item["torch"])
+room['foyer'].add_item(item["ring"])
+room['overlook'].add_item(item["sword"])
+room['narrow'].add_item(item["sword"])
+room['treasure'].add_item(item["sword"])
 #
 # Main
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player(input("Please enter your name: "), room['outside'])
+player = Player(input("Please enter your name: "), room['foyer'])
 print(player.current_room)
 # Write a loop that:
 #
