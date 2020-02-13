@@ -23,9 +23,8 @@ class Room:
         return display_string
 
     def get_room_in_direction(self, direction):
-        if hasattr(self, f"{direction}_to"):
-            return getattr(self, f"{direction}_to")
-        return None
+
+        return getattr(self, f"{direction}_to", None)
 
     def get_exits(self):
         exits = []
@@ -41,3 +40,9 @@ class Room:
 
     def get_exits_string(self):
         return f"Exits: {', '.join(self.get_exits())}"
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def drop_item(self, item):
+        self.items.remove(item)

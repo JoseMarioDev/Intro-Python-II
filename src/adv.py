@@ -1,6 +1,6 @@
 from room import Room
 from player import Player
-
+from item import Item
 
 # Declare all the rooms
 
@@ -38,20 +38,20 @@ room['treasure'].s_to = room['narrow']
 
 # items
 
-item = {
+items = {
     "torch": Item("torch", "The light will help you see the way"),
     "sword": Item("sword", "Hattori Hanzo to defeat your enemies"),
-    "shield": Item("shield", "Block your enemies blows"),
+    "shield": Item("shield", "Block your enemy's blows"),
     "crown": Item("crown", "Claim your rightful place on the throne"),
     "ring": Item("ring", "family heirloom, reminder of your greatness")
 }
 
 # Add to rooms
-room['outside'].add_item(item["torch"])
-room['foyer'].add_item(item["ring"])
-room['overlook'].add_item(item["sword"])
-room['narrow'].add_item(item["sword"])
-room['treasure'].add_item(item["sword"])
+room['outside'].add_item(items["torch"])
+room['foyer'].add_item(items["sword"])
+room['overlook'].add_item(items["shield"])
+room['narrow'].add_item(items["crown"])
+room['treasure'].add_item(items["ring"])
 #
 # Main
 #
